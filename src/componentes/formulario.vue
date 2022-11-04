@@ -65,7 +65,6 @@
           </vue-form>
         </div>
       </div>
-      
         <!--      TABLA SUBMIT        -->
         <!--                            -->
         
@@ -95,21 +94,21 @@
         
             <tr v-if=" this.total <= formData.presupuesto">
               <td></td>
-              <td :style="{ color: this.calcularColor().color }">
+              <td :style="{ color: this.presupuestoColor }">
                 TOTAL
                 </td>
-                <td :style="{ color: this.calcularColor().color }">$ {{ this.total }}</td>
+                <td :style="{ color:  this.presupuestoColor }">$ {{ this.total }}</td>
                 <td></td>
                 </tr>
+
                 <tr v-else>
                   <td></td>
-                  <td :style="{ color: presupuestoColor} ">
+                  <td :style="{ color: this.calcularColor().color} ">
                     TOTAL: 
                   </td>
-                  <td :style="{ color: presupuestoColor} "> $ {{ this.total }}</td>
+                  <td :style="{ color: this.calcularColor().color} "> $ {{ this.total }}</td>
                   <td></td>
                 </tr>
-                
                 
                 </table>
         </div>
@@ -140,7 +139,7 @@ export default {
       nombreMinLength: 3,
       nombreMaxLength: 15,
       importeMin: 0,
-      presupuestoColor: "#FF0000",
+      presupuestoColor: "red",
       color: 'red',
       presupuesto: 0,
 
@@ -175,7 +174,6 @@ export default {
     calcularColor() {
       let color 
       let total = this.total
-    
 
      if(total < 1000){
         color = 'green'
